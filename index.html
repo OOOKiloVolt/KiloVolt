@@ -45,10 +45,21 @@
             flex-wrap: wrap;
             gap: 16px;
         }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .logo img {
+            height: 55px;
+            width: auto;
+            display: block;
+        }
         .logo h1 {
             font-size: 28px;
             font-weight: 700;
             color: #1a1a2e;
+            margin: 0;
         }
         .logo span {
             color: #b22234;
@@ -239,6 +250,10 @@
                 flex-direction: column;
                 text-align: center;
             }
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
             .contacts-top {
                 text-align: center;
             }
@@ -260,8 +275,12 @@
 <header class="header">
     <div class="container header-inner">
         <div class="logo">
-            <h1>ООО <span>«КИЛОВОЛЬТ»</span></h1>
-            <small>Электротехника · Сантехника · Промышленное оборудование</small>
+            <!-- ВСТАВЬТЕ СЮДА ВАШ ЛОГОТИП -->
+            <img src="logo.png" alt="Логотип ООО Киловольт" />
+            <div>
+                <h1>ООО <span>«КИЛОВОЛЬТ»</span></h1>
+                <small>Электротехника · Сантехника · Промышленное оборудование</small>
+            </div>
         </div>
         <div class="contacts-top">
             <div>📞 <span class="phone">+7 (937) 551-44-87</span></div>
@@ -551,15 +570,12 @@
 
         <div class="contacts-block">
             <div class="person">
-               
                 <span class="phone">+7 (937) 551-44-87</span>
             </div>
             <div class="person">
-               
                 <span class="phone">+7 (905) 391-44-66</span>
             </div>
             <div class="person">
-                
                 <span class="phone">+7 917 721-85-42</span>
             </div>
         </div>
