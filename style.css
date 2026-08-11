@@ -63,16 +63,7 @@ a:hover {
     margin-top: 2px;
 }
 .contacts-top {
-    text-align: right;
-    font-size: 15px;
-}
-.contacts-top a {
-    color: #1a1a2e;
-    font-weight: 500;
-}
-.contacts-top .phone {
-    font-weight: 700;
-    color: #b22234;
+    display: none;
 }
 /* ----- НАВИГАЦИЯ ----- */
 .nav {
