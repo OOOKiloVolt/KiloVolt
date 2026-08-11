@@ -5,68 +5,377 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ООО «КИЛОВОЛЬТ» — Электротехника, сантехника, оборудование</title>
     <link rel="icon" href="favicon.svg" />
+    <!-- Font Awesome для красивых иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; color: #1a1a2e; line-height: 1.6; }
-        a { color: #b22234; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        /* ===== БАЗОВЫЕ СТИЛИ ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+        a {
+            color: #b22234;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #8a1a26;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-        /* ШАПКА */
-        .header { background: #ffffff; border-bottom: 3px solid #b22234; padding: 18px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-        .logo { display: flex; align-items: center; gap: 15px; }
-        .logo img { height: 50px; width: auto; }
-        .logo h1 { font-size: 28px; font-weight: 700; color: #1a1a2e; margin: 0; }
-        .logo span { color: #b22234; }
-        .logo small { display: block; font-size: 13px; font-weight: 400; color: #555; margin-top: 2px; }
-        .contacts-top { text-align: right; font-size: 15px; }
-        .contacts-top a { color: #1a1a2e; font-weight: 500; }
-        .contacts-top .phone { font-weight: 700; color: #b22234; }
+        /* ===== ШАПКА (УЛУЧШЕННАЯ) ===== */
+        .header {
+            background: #ffffff;
+            border-bottom: 3px solid #b22234;
+            padding: 18px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s;
+        }
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 0;
+        }
+        .logo span {
+            color: #b22234;
+        }
+        .logo small {
+            display: block;
+            font-size: 13px;
+            font-weight: 400;
+            color: #777;
+            margin-top: 2px;
+        }
+        .contacts-top {
+            text-align: right;
+            font-size: 15px;
+        }
+        .contacts-top a {
+            color: #1a1a2e;
+            font-weight: 500;
+        }
+        .contacts-top .phone {
+            font-weight: 700;
+            color: #b22234;
+            font-size: 17px;
+        }
 
-        /* НАВИГАЦИЯ */
-        .nav { background: #1a1a2e; padding: 10px 0; }
-        .nav-inner { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: center; }
-        .nav-inner a { color: #ffffff; font-weight: 500; font-size: 15px; padding: 4px 0; border-bottom: 2px solid transparent; transition: border-color 0.2s; }
-        .nav-inner a:hover { border-color: #b22234; text-decoration: none; }
+        /* ===== НАВИГАЦИЯ (УЛУЧШЕННАЯ) ===== */
+        .nav {
+            background: #1a1a2e;
+            padding: 12px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 84px;
+            z-index: 99;
+        }
+        .nav-inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 24px;
+            justify-content: center;
+        }
+        .nav-inner a {
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 15px;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .nav-inner a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #b22234;
+            transition: width 0.3s;
+        }
+        .nav-inner a:hover::after {
+            width: 100%;
+        }
+        .nav-inner a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
 
-        /* БАННЕР */
-        .banner { background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%); color: #ffffff; padding: 48px 20px; margin: 30px 0; border-radius: 16px; text-align: center; }
-        .banner h2 { font-size: 34px; font-weight: 700; margin-bottom: 12px; }
-        .banner p { font-size: 18px; opacity: 0.85; max-width: 700px; margin: 0 auto 20px; }
-        .banner .btn { display: inline-block; background: #b22234; color: #fff; padding: 14px 40px; border-radius: 40px; font-weight: 600; font-size: 16px; transition: background 0.2s; }
-        .banner .btn:hover { background: #8a1a26; text-decoration: none; }
+        /* ===== БАННЕР (УЛУЧШЕННЫЙ) ===== */
+        .banner {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 50%, #1a1a2e 100%);
+            color: #ffffff;
+            padding: 60px 20px;
+            margin: 30px 0 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(26, 26, 46, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: rgba(178, 34, 52, 0.15);
+            border-radius: 50%;
+        }
+        .banner h2 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+        }
+        .banner p {
+            font-size: 18px;
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto 24px;
+            position: relative;
+        }
+        .banner .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #b22234, #8a1a26);
+            color: #fff;
+            padding: 16px 48px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(178, 34, 52, 0.4);
+            position: relative;
+        }
+        .banner .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(178, 34, 52, 0.6);
+            text-decoration: none;
+            color: #fff;
+        }
 
-        /* СЕКЦИИ */
-        .section { background: #ffffff; border-radius: 16px; padding: 36px 32px; margin-bottom: 30px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); border: 1px solid #e8eaed; }
-        .section h2 { font-size: 26px; font-weight: 700; color: #1a1a2e; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #b22234; display: inline-block; }
-        .section h3 { font-size: 20px; font-weight: 600; color: #1a1a2e; margin: 18px 0 10px; }
-        .section ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px 20px; }
-        .section ul li { padding: 4px 0 4px 20px; position: relative; font-size: 15px; }
-        .section ul li::before { content: "▸"; color: #b22234; font-weight: 700; position: absolute; left: 0; }
-        .section .brands { display: flex; flex-wrap: wrap; gap: 12px 28px; padding: 12px 0; font-weight: 500; }
-        .section .brands span { background: #f4f6f9; padding: 4px 14px; border-radius: 20px; font-size: 14px; }
+        /* ===== СЕКЦИИ (УЛУЧШЕННЫЕ) ===== */
+        .section {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px 36px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            border: 1px solid #e8eaed;
+            transition: all 0.3s;
+        }
+        .section:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+        }
+        .section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #b22234;
+            display: inline-block;
+        }
+        .section h2 i {
+            color: #b22234;
+            margin-right: 10px;
+        }
+        .section h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin: 20px 0 12px;
+        }
+        .section h3 i {
+            color: #b22234;
+            margin-right: 8px;
+            width: 24px;
+        }
 
-        /* КОНТАКТЫ */
-        .contacts-block { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 12px; }
-        .contacts-block .person { background: #f8f9fb; padding: 16px 20px; border-radius: 12px; border-left: 4px solid #b22234; }
-        .contacts-block .person strong { display: block; font-size: 16px; }
-        .contacts-block .person .phone { font-weight: 600; color: #b22234; }
+        /* ===== КАРТОЧКИ ТОВАРОВ (НОВЫЕ) ===== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 8px;
+        }
+        .product-card {
+            background: #f8f9fb;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border-left: 4px solid #b22234;
+            transition: all 0.3s;
+            cursor: default;
+        }
+        .product-card:hover {
+            transform: translateX(6px);
+            background: #f0f2f5;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .product-card i {
+            color: #b22234;
+            margin-right: 8px;
+            width: 20px;
+        }
 
-        /* ПОДВАЛ */
-        .footer { background: #1a1a2e; color: #aaa; padding: 28px 0; margin-top: 20px; text-align: center; font-size: 14px; }
-        .footer a { color: #ddd; }
-        .footer a:hover { color: #fff; text-decoration: underline; }
-        .footer .copy { margin-top: 6px; color: #777; }
+        /* ===== БРЕНДЫ (УЛУЧШЕННЫЕ) ===== */
+        .brands {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            padding: 12px 0;
+        }
+        .brands span {
+            background: linear-gradient(135deg, #f4f6f9, #e8eaed);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: default;
+        }
+        .brands span:hover {
+            background: #b22234;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(178, 34, 52, 0.3);
+        }
 
-        /* АДАПТИВ */
+        /* ===== КОНТАКТЫ (УЛУЧШЕННЫЕ) ===== */
+        .contacts-block {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 12px;
+        }
+        .contacts-block .person {
+            background: linear-gradient(135deg, #f8f9fb, #f0f2f5);
+            padding: 18px 22px;
+            border-radius: 14px;
+            border-left: 4px solid #b22234;
+            transition: all 0.3s;
+        }
+        .contacts-block .person:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+        }
+        .contacts-block .person .phone {
+            font-weight: 700;
+            color: #b22234;
+            font-size: 16px;
+        }
+        .contacts-block .person i {
+            color: #b22234;
+            margin-right: 6px;
+        }
+
+        /* ===== ПОДВАЛ (УЛУЧШЕННЫЙ) ===== */
+        .footer {
+            background: #1a1a2e;
+            color: #aaa;
+            padding: 36px 0;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 3px solid #b22234;
+        }
+        .footer a {
+            color: #ddd;
+            transition: color 0.3s;
+        }
+        .footer a:hover {
+            color: #b22234;
+            text-decoration: none;
+        }
+        .footer .copy {
+            margin-top: 8px;
+            color: #777;
+        }
+        .footer .social {
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .footer .social a {
+            color: #777;
+            font-size: 22px;
+            transition: all 0.3s;
+        }
+        .footer .social a:hover {
+            color: #b22234;
+            transform: translateY(-3px);
+        }
+
+        /* ===== АДАПТИВ ===== */
         @media (max-width: 768px) {
-            .header-inner { flex-direction: column; text-align: center; }
-            .logo { flex-direction: column; text-align: center; }
-            .contacts-top { text-align: center; }
-            .banner h2 { font-size: 26px; }
-            .section ul { grid-template-columns: 1fr; }
-            .contacts-block { grid-template-columns: 1fr; }
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contacts-top {
+                text-align: center;
+            }
+            .nav {
+                top: 0;
+                position: relative;
+            }
+            .banner h2 {
+                font-size: 26px;
+            }
+            .section {
+                padding: 24px 18px;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .contacts-block {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -79,12 +388,12 @@
                 <img src="LOGO.png" alt="Логотип ООО Киловольт">
                 <div>
                     <h1>ООО <span>«КИЛОВОЛЬТ»</span></h1>
-                    <small>Электротехника · Сантехника · Промышленное оборудование</small>
+                    <small><i class="fas fa-bolt" style="color:#b22234;"></i> Электротехника · Сантехника · Промышленное оборудование</small>
                 </div>
             </div>
             <div class="contacts-top">
-                <div>📞 <span class="phone">+7 (937) 551-44-87</span></div>
-                <div><a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a></div>
+                <div><i class="fas fa-phone" style="color:#b22234;"></i> <span class="phone">+7 (937) 551-44-87</span></div>
+                <div><i class="fas fa-envelope" style="color:#b22234;"></i> <a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a></div>
             </div>
         </div>
     </header>
@@ -92,12 +401,12 @@
     <!-- ===== НАВИГАЦИЯ ===== -->
     <nav class="nav">
         <div class="container nav-inner">
-            <a href="#about">О компании</a>
-            <a href="#products">Продукция</a>
-            <a href="#automation">Промышленная автоматизация</a>
-            <a href="#oil">Нефтегазовое оборудование</a>
-            <a href="#brands">Бренды</a>
-            <a href="#contacts">Контакты</a>
+            <a href="#about"><i class="fas fa-info-circle"></i> О компании</a>
+            <a href="#products"><i class="fas fa-boxes"></i> Продукция</a>
+            <a href="#automation"><i class="fas fa-microchip"></i> Автоматизация</a>
+            <a href="#oil"><i class="fas fa-oil-can"></i> Нефтегаз</a>
+            <a href="#brands"><i class="fas fa-tags"></i> Бренды</a>
+            <a href="#contacts"><i class="fas fa-address-book"></i> Контакты</a>
         </div>
     </nav>
 
@@ -106,63 +415,138 @@
 
         <!-- БАННЕР -->
         <section class="banner">
-            <h2>Надёжный поставщик оборудования</h2>
+            <h2><i class="fas fa-shield-alt"></i> Надёжный поставщик оборудования</h2>
             <p>Комплексные поставки электротехнической, сантехнической продукции, промышленного оборудования для предприятий всех отраслей.</p>
-            <a href="#contacts" class="btn">Связаться с нами</a>
+            <a href="#contacts" class="btn"><i class="fas fa-paper-plane"></i> Связаться с нами</a>
         </section>
 
         <!-- О КОМПАНИИ -->
         <section class="section" id="about">
-            <h2>О компании</h2>
+            <h2><i class="fas fa-building"></i> О компании</h2>
             <p style="font-size:16px; margin-bottom:12px;"><strong>ООО «КИЛОВОЛЬТ»</strong> — оптовый поставщик электротехнической, сантехнической продукции, инженерного и промышленного оборудования.</p>
-            <p style="font-size:16px;">
-                ✅ Гибкая система скидок<br />
-                ✅ Качество поставляемой продукции<br />
-                ✅ Индивидуальный подход к каждому клиенту<br />
-                ✅ Бесплатная доставка<br />
-                ✅ Команда профессиональных менеджеров с техническим образованием<br />
-                ✅ Помощь в подборе аналогов и поставка импортных комплектующих
-            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px 16px; font-size:15px;">
+                <div><i class="fas fa-check-circle" style="color:#b22234;"></i> Гибкая система скидок</div>
+                <div><i class="fas fa-check-circle" style="color:#b22234;"></i> Качество поставляемой продукции</div>
+                <div><i class="fas fa-check-circle" style="color:#b22234;"></i> Индивидуальный подход к каждому клиенту</div>
+                <div><i class="fas fa-check-circle" style="color:#b22234;"></i> Бесплатная доставка</div>
+                <div><i class="fas fa-check-circle" style="color:#b22234;"></i> Команда профессиональных менеджеров</div>
+                <div><i class="fas fa-check-circle" style="color:#b22234;"></i> Помощь в подборе аналогов</div>
+            </div>
         </section>
 
-        <!-- ПРОДУКЦИЯ -->
+        <!-- ПРОДУКЦИЯ (С КАРТОЧКАМИ) -->
         <section class="section" id="products">
-            <h2>Продукция</h2>
-            <h3>📌 Кабельно-проводниковая продукция</h3>
-            <ul><li>Кабель, провод различных наименований и технических характеристик</li></ul>
-            <h3>📌 Промышленное электрооборудование</h3>
-            <ul><li>Двигатели</li><li>Компрессоры</li></ul>
-            <h3>📌 Светотехническое оборудование</h3>
-            <ul><li>Промышленные светильники</li><li>Офисные светильники</li><li>Бытовые светильники</li><li>Взрывозащищенные светильники</li><li>Лампы, цоколи и пр.</li></ul>
-            <h3>📌 Системы прокладки кабеля</h3>
-            <ul><li>Кабельный лоток</li><li>Металлорукав</li><li>Гофра</li><li>Трубы ПВД и ПНД, аксессуары</li></ul>
-            <h3>📌 Электрощитовое оборудование</h3>
-            <ul><li>Пластиковые боксы и корпуса для учёта и распределения электроэнергии</li><li>Металлокорпуса</li><li>Электрощиты в сборе</li><li>Аксессуары для шкафов и щитов</li></ul>
-            <h3>📌 Низковольтное оборудование</h3>
-            <ul><li>Автоматические выключатели</li><li>Контакторы</li><li>Частотные преобразователи</li><li>Пускатели</li><li>Реле, таймеры, ограничители мощности</li></ul>
-            <h3>📌 Высоковольтное оборудование</h3>
-            <ul><li>Трансформаторные подстанции</li><li>Ячейки КСО, КРУН</li><li>Изоляторы, траверсы, птицезащита</li><li>РЛНД</li></ul>
-            <h3>📌 Запорная и регулирующая арматура водоснабжения</h3>
-            <ul><li>Задвижки (латунные, стальные, чугунные)</li><li>Шаровые краны</li><li>Затворы поворотные</li><li>Электроприводы, редукторы</li><li>Манометры, термоманометры, термометры</li></ul>
-            <h3>📌 Трубопроводные системы</h3>
-            <ul><li>Фланцы, резьбовые соединения, переходники, муфты, сгоны, отводы</li><li>Обратные клапаны, фильтры, компенсаторы, элеваторы, грязевики</li><li>Конденсатоотводчики, воздухоотводчики</li><li>Компенсаторы и виброгасители</li><li>Узлы смесительные</li></ul>
-            <h3>📌 Насосное оборудование</h3>
-            <ul><li>Насосы</li><li>Насосные станции</li><li>Промышленные гидростанции</li></ul>
-            <h3>📌 Отопительное оборудование</h3>
-            <ul><li>Радиаторы (алюминиевые, биметаллические, стальные, чугунные)</li></ul>
-            <h3>📌 Средства автоматического пожаротушения</h3>
-            <ul><li>Системы пожаротушения</li></ul>
-            <h3>📌 Канализационные системы</h3>
-            <ul><li>Канализационные системы</li></ul>
+            <h2><i class="fas fa-box-open"></i> Продукция</h2>
+
+            <h3><i class="fas fa-plug"></i> Кабельно-проводниковая продукция</h3>
+            <div class="products-grid">
+                <div class="product-card"><i class="fas fa-cable-car"></i> Кабель, провод различных наименований</div>
+            </div>
+
+            <h3><i class="fas fa-industry"></i> Промышленное электрооборудование</h3>
+            <div class="products-grid">
+                <div class="product-card"><i class="fas fa-cogs"></i> Двигатели</div>
+                <div class="product-card"><i class="fas fa-compress-arrows-alt"></i> Компрессоры</div>
+            </div>
+
+            <h3><i class="fas fa-lightbulb"></i> Светотехническое оборудование</h3>
+            <div class="products-grid">
+                <div class="product-card"><i class="fas fa-industry"></i> Промышленные светильники</div>
+                <div class="product-card"><i class="fas fa-briefcase"></i> Офисные светильники</div>
+                <div class="product-card"><i class="fas fa-home"></i> Бытовые светильники</div>
+                <div class="product-card"><i class="fas fa-exclamation-triangle"></i> Взрывозащищенные светильники</div>
+                <div class="product-card"><i class="fas fa-circle"></i> Лампы, цоколи и пр.</div>
+            </div>
+
+            <h3><i class="fas fa-route"></i> Системы прокладки кабеля</h3>
+            <div class="products-grid">
+                <div class="product-card"><i class="fas fa-layer-group"></i> Кабельный лоток</div>
+                <div class="product-card"><i class="fas fa-coils"></i> Металлорукав</div>
+                <div class="product-card"><i class="fas fa-wave-square"></i> Гофра</div>
+                <div class="product-card"><i class="fas fa-pipe"></i> Трубы ПВД и ПНД, аксессуары</div>
+            </div>
+
+            <h3><i class="fas fa-bolt"></i> Электрощитовое оборудование</h3>
+            <div class="products-grid">
+                <div class="product-card"><i class="fas fa-box"></i> Пластиковые боксы и корпуса</div>
+                <div class="product-card"><i class="fas fa-cube"></i> Металлокорпуса</div>
+                <div class="product-card"><i class="fas fa-th-large"></i> Электрощиты в сборе</div>
+                <div class="product-card"><i class="fas fa-tools"></i> Аксессуары для шкафов и щитов</div>
+            </div>
+
+            <h3><i class="fas fa-microchip"></i> Низковольтное оборудование</h3>
+            <div class="products-grid">
+                <div class="product-card"><i class="fas fa-power-off"></i> Автоматические выключатели</div>
+                <div class="product-card"><i class="fas fa-exchange-alt"></i> Контакторы</div>
+                <div class="product-card"><i class="fas fa-chart-line"></i> Частотные преобразователи</div>
+                <div class="product-card"><i class="fas fa-play"></i> Пускатели</div>
+                <div class="product-card"><i class="fas fa-clock"></i> Реле, таймеры, ограничители мощности</div>
+            </div>
+
+            <h3><i class="fas fa-bolt" style="color:#ff6b00;"></i> Высоковольтное оборудование</h3>
+            <div class="products-grid">
+                <div class="product-card"><i class="fas fa-building"></i> Трансформаторные подстанции</div>
+                <div class="product-card"><i class="fas fa-vector-square"></i> Ячейки КСО, КРУН</div>
+                <div class="product-card"><i class="fas fa-shield"></i> Изоляторы, траверсы, птицезащита</div>
+                <div class="product-card"><i class="fas fa-arrow-up"></i> РЛНД</div>
+            </div>
+
+            <h3><i class="fas fa-water"></i> Запорная и регулирующая арматура</h3>
+            <div class="products-grid">
+                <div class="product-card"><i class="fas fa-valve"></i> Задвижки (латунные, стальные, чугунные)</div>
+                <div class="product-card"><i class="fas fa-circle"></i> Шаровые краны</div>
+                <div class="product-card"><i class="fas fa-rotate"></i> Затворы поворотные</div>
+                <div class="product-card"><i class="fas fa-gear"></i> Электроприводы, редукторы</div>
+                <div class="product-card"><i class="fas fa-gauge-high"></i> Манометры, термоманометры, термометры</div>
+            </div>
+
+            <h3><i class="fas fa-pipes"></i> Трубопроводные системы</h3>
+            <div class="products-grid">
+                <div class="product-card"><i class="fas fa-link"></i> Фланцы, резьбовые соединения</div>
+                <div class="product-card"><i class="fas fa-arrow-right-arrow-left"></i> Переходники, муфты, сгоны, отводы</div>
+                <div class="product-card"><i class="fas fa-filter"></i> Обратные клапаны, фильтры</div>
+                <div class="product-card"><i class="fas fa-compress"></i> Компенсаторы и виброгасители</div>
+            </div>
+
+            <h3><i class="fas fa-water-pump"></i> Насосное оборудование</h3>
+            <div class="products-grid">
+                <div class="product-card"><i class="fas fa-pump"></i> Насосы</div>
+                <div class="product-card"><i class="fas fa-building"></i> Насосные станции</div>
+                <div class="product-card"><i class="fas fa-industry"></i> Промышленные гидростанции</div>
+            </div>
+
+            <h3><i class="fas fa-fire"></i> Отопительное оборудование</h3>
+            <div class="products-grid">
+                <div class="product-card"><i class="fas fa-radiator"></i> Радиаторы (алюминиевые, биметаллические, стальные, чугунные)</div>
+            </div>
+
+            <h3><i class="fas fa-fire-extinguisher"></i> Средства автоматического пожаротушения</h3>
+            <div class="products-grid">
+                <div class="product-card"><i class="fas fa-fire-extinguisher"></i> Системы пожаротушения</div>
+            </div>
+
+            <h3><i class="fas fa-toilet"></i> Канализационные системы</h3>
+            <div class="products-grid">
+                <div class="product-card"><i class="fas fa-toilet"></i> Канализационные системы</div>
+            </div>
         </section>
 
         <!-- ПРОМЫШЛЕННАЯ АВТОМАТИЗАЦИЯ -->
         <section class="section" id="automation">
-            <h2>Промышленная автоматизация и комплектующие</h2>
+            <h2><i class="fas fa-microchip"></i> Промышленная автоматизация</h2>
             <p style="font-size:16px; margin-bottom:16px;">Поставляем электронное оборудование для промышленной автоматизации, в том числе позиции, снятые с производства или не завозимые в Россию (доставляем со складов Европы, США, Японии через Казахстан).</p>
-            <h3>Номенклатура:</h3>
-            <ul><li>Датчики</li><li>Контроллеры</li><li>Приводы, серводвигатели, сервоусилители</li><li>Частотные преобразователи</li><li>Актуаторы, модули</li><li>Концевые выключатели, контакторы</li><li>Уровнемеры, расходомеры</li></ul>
-            <h3>Производители:</h3>
+            <h3><i class="fas fa-list"></i> Номенклатура:</h3>
+            <div class="products-grid">
+                <div class="product-card"><i class="fas fa-ruler"></i> Датчики</div>
+                <div class="product-card"><i class="fas fa-server"></i> Контроллеры</div>
+                <div class="product-card"><i class="fas fa-motor"></i> Приводы, серводвигатели, сервоусилители</div>
+                <div class="product-card"><i class="fas fa-chart-line"></i> Частотные преобразователи</div>
+                <div class="product-card"><i class="fas fa-cogs"></i> Актуаторы, модули</div>
+                <div class="product-card"><i class="fas fa-toggle-on"></i> Концевые выключатели, контакторы</div>
+                <div class="product-card"><i class="fas fa-tachometer-alt"></i> Уровнемеры, расходомеры</div>
+            </div>
+
+            <h3><i class="fas fa-tags"></i> Производители:</h3>
             <div class="brands">
                 <span>Siemens</span><span>Allen-Bradley</span><span>Fanuc</span>
                 <span>Sick</span><span>iFM</span><span>Pepper+Fuchs</span>
@@ -179,48 +563,62 @@
 
         <!-- НЕФТЕГАЗОВОЕ ОБОРУДОВАНИЕ -->
         <section class="section" id="oil">
-            <h2>Оборудование для нефтегазовой отрасли</h2>
-            <p style="font-size:16px; margin-bottom:12px;">Поставка оборудования для АЗС, нефтебаз, предприятий нефтеперерабатывающей сферы.</p>
-            <h3>⛽ Топливозадаточные колонки</h3>
-            <ul><li>Gilbarco</li><li>SANKI</li><li>Wayne</li><li>Tokheim</li><li>ADAST</li></ul>
-            <h3>⛽ Насосы и счётчики (расходомеры)</h3>
-            <ul><li>Red Jacket</li><li>Fe Petro</li><li>Счётчики ППО</li><li>Счётчики TCS</li></ul>
-            <h3>⛽ Системы измерения уровня топлива (СИУТ)</h3>
-            <ul><li>FAFNIR</li><li>Veeder-Root</li><li>Petro Vend</li><li>Струна+</li><li>ОКБ Вектор</li></ul>
-            <h3>⛽ Терминалы самообслуживания</h3>
-            <ul><li>FlexPay</li><li>ЭЛ-КОНТРАКТ</li></ul>
-            <h3>⛽ Резервуарный парк</h3>
-            <ul><li>Резервуары и резервуарное оборудование</li></ul>
-            <h3>⛽ Метрология</h3>
-            <ul><li>Паста метрологическая</li><li>Ареометры</li><li>Пробоотборники и заборные вёдра</li><li>Метроштоки</li><li>Мерники</li><li>Цилиндры мерные</li><li>Рулетки</li></ul>
-            <h3>⛽ Запасные части ТРК</h3>
-            <ul><li>Elaflex</li><li>OPW</li><li>Good Year / Continental</li><li>Semperit</li><li>Gilbarco, Wayne, Tokheim, Adast, HAPA</li></ul>
-            <h3>⛽ Эксплуатационное оборудование</h3>
-            <ul><li>Лотки</li><li>Дуги безопасности</li><li>Коронки заправочного островка</li><li>Светильники навеса</li><li>Контейнеры</li><li>Информационные таблички</li></ul>
-            <h3>⛽ Пластиковый трубопровод</h3>
-            <ul><li>UPP</li><li>Dinarjire</li><li>KPS</li><li>RUS PIPE</li></ul>
-            <h3>⛽ Автоматизация</h3>
-            <ul><li>БУК TS-G</li><li>GasKit</li><li>Пульты управления</li><li>DOMS</li></ul>
-            <h3>⛽ Быстроразъёмные соединения</h3>
-            <ul><li>Сат Lock</li><li>TankWagen</li></ul>
-            <h3>⛽ Антивибрационные компенсаторы</h3>
-            <ul><li>Elaflex и пр.</li></ul>
-            <h3>⛽ Краны шаровые</h3>
-            <ul><li>Danfoss</li><li>NAVAL</li></ul>
-            <h3>⛽ Диэлектрическая продукция</h3>
-            <ul><li>Диэлектрическая продукция</li></ul>
+            <h2><i class="fas fa-oil-can"></i> Нефтегазовое оборудование</h2>
+            <p style="font-size:16px; margin-bottom:16px;">Поставка оборудования для АЗС, нефтебаз, предприятий нефтеперерабатывающей сферы.</p>
+
+            <h3><i class="fas fa-gas-pump"></i> Топливозадаточные колонки</h3>
+            <div class="brands"><span>Gilbarco</span><span>SANKI</span><span>Wayne</span><span>Tokheim</span><span>ADAST</span></div>
+
+            <h3><i class="fas fa-pump"></i> Насосы и счётчики</h3>
+            <div class="brands"><span>Red Jacket</span><span>Fe Petro</span><span>Счётчики ППО</span><span>Счётчики TCS</span></div>
+
+            <h3><i class="fas fa-chart-simple"></i> Системы измерения уровня топлива</h3>
+            <div class="brands"><span>FAFNIR</span><span>Veeder-Root</span><span>Petro Vend</span><span>Струна+</span><span>ОКБ Вектор</span></div>
+
+            <h3><i class="fas fa-touch"></i> Терминалы самообслуживания</h3>
+            <div class="brands"><span>FlexPay</span><span>ЭЛ-КОНТРАКТ</span></div>
+
+            <h3><i class="fas fa-tank"></i> Резервуарный парк</h3>
+            <div class="brands"><span>Резервуары и резервуарное оборудование</span></div>
+
+            <h3><i class="fas fa-flask"></i> Метрология</h3>
+            <div class="brands"><span>Паста метрологическая</span><span>Ареометры</span><span>Пробоотборники</span><span>Метроштоки</span><span>Мерники</span><span>Цилиндры мерные</span><span>Рулетки</span></div>
+
+            <h3><i class="fas fa-wrench"></i> Запасные части ТРК</h3>
+            <div class="brands"><span>Elaflex</span><span>OPW</span><span>Good Year</span><span>Semperit</span><span>Gilbarco, Wayne, Tokheim, Adast, HAPA</span></div>
+
+            <h3><i class="fas fa-helmet-safety"></i> Эксплуатационное оборудование</h3>
+            <div class="brands"><span>Лотки</span><span>Дуги безопасности</span><span>Коронки заправочного островка</span><span>Светильники навеса</span><span>Контейнеры</span><span>Информационные таблички</span></div>
+
+            <h3><i class="fas fa-pipe"></i> Пластиковый трубопровод</h3>
+            <div class="brands"><span>UPP</span><span>Dinarjire</span><span>KPS</span><span>RUS PIPE</span></div>
+
+            <h3><i class="fas fa-robot"></i> Автоматизация</h3>
+            <div class="brands"><span>БУК TS-G</span><span>GasKit</span><span>Пульты управления</span><span>DOMS</span></div>
+
+            <h3><i class="fas fa-plug"></i> Быстроразъёмные соединения</h3>
+            <div class="brands"><span>Сат Lock</span><span>TankWagen</span></div>
+
+            <h3><i class="fas fa-wave-square"></i> Антивибрационные компенсаторы</h3>
+            <div class="brands"><span>Elaflex и пр.</span></div>
+
+            <h3><i class="fas fa-circle"></i> Краны шаровые</h3>
+            <div class="brands"><span>Danfoss</span><span>NAVAL</span></div>
+
+            <h3><i class="fas fa-bolt"></i> Диэлектрическая продукция</h3>
+            <div class="brands"><span>Диэлектрическая продукция</span></div>
         </section>
 
         <!-- БРЕНДЫ -->
         <section class="section" id="brands">
-            <h2>Официальный партнёр ведущих брендов</h2>
-            <div class="brands" style="gap:12px 28px; font-weight:500; padding:8px 0;">
+            <h2><i class="fas fa-tags"></i> Официальный партнёр ведущих брендов</h2>
+            <div class="brands">
                 <span>TDM ELECTRIC</span><span>КЭАЗ</span><span>IEK</span>
                 <span>Лидер Лайт</span><span>ЭНЕРГОМЕРА</span><span>КМ-Профиль</span>
                 <span>Навигатор</span><span>Feron</span><span>ГК Камит</span>
             </div>
-            <p style="margin-top:12px;"><strong>Кабельные заводы:</strong></p>
-            <div class="brands" style="gap:12px 28px;">
+            <p style="margin-top:16px;"><strong><i class="fas fa-cable-car"></i> Кабельные заводы:</strong></p>
+            <div class="brands">
                 <span>Эксперт-Кабель</span><span>Рыбинсккабель</span>
                 <span>Иркутсккабель</span><span>Кирсккабель</span>
                 <span>Эм-кабель</span><span>Элкаб</span>
@@ -229,37 +627,15 @@
 
         <!-- КОНТАКТЫ -->
         <section class="section" id="contacts">
-            <h2>Контакты</h2>
+            <h2><i class="fas fa-address-book"></i> Контакты</h2>
             <p style="font-size:16px; margin-bottom:16px;">
-                <strong>Адрес:</strong> 404121, РФ, Волгоградская обл., г. Волжский, ул. Дорожная, д. 7, офис 315<br />
-                <strong>E-mail:</strong> <a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a>
+                <i class="fas fa-map-pin" style="color:#b22234;"></i> <strong>Адрес:</strong> 404121, РФ, Волгоградская обл., г. Волжский, ул. Дорожная, д. 7, офис 315<br />
+                <i class="fas fa-envelope" style="color:#b22234;"></i> <strong>E-mail:</strong> <a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a>
             </p>
+
             <div class="contacts-block">
-                <div class="person"><span class="phone">+7 (937) 551-44-87</span></div>
-                <div class="person"><span class="phone">+7 (905) 391-44-66</span></div>
-                <div class="person"><span class="phone">+7 917 721-85-42</span></div>
-            </div>
-            <p style="margin-top:12px; font-style:italic; color:#555;">
-                <strong>Кравченко Денис</strong> — коммерческий директор<br />
-                <span class="phone">+7 (937) 742-44-66</span> · <a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a>
-            </p>
-            <p style="margin-top:20px; text-align:center;">
-                <strong>📩 Пришлите вашу текущую потребность — мы подготовим выгодное предложение!</strong>
-            </p>
-        </section>
-
-    </main>
-
-    <!-- ===== ПОДВАЛ ===== -->
-    <footer class="footer">
-        <div class="container">
-            <p>
-                <a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a> |
-                <a href="tel:+79375514487">+7 (937) 551-44-87</a>
-            </p>
-            <p class="copy">© 2026 ООО «КИЛОВОЛЬТ». Все права защищены.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+                <div class="person">
+                    <i class="fas fa-phone"></i> <span class="phone">+7 (937) 551-44-87</span>
+                </div>
+                <div class="person">
+                    <i class="
