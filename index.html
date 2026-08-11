@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,29 +6,90 @@
     <title>ООО «КИЛОВОЛЬТ» — Электротехника, сантехника, оборудование</title>
     <link rel="icon" href="favicon.svg" />
     <style>
-        /* ВСЕ ВАШИ СТИЛИ (CSS) ЗДЕСЬ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; color: #1a1a2e; line-height: 1.6; }
+        a { color: #b22234; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* ШАПКА */
+        .header { background: #ffffff; border-bottom: 3px solid #b22234; padding: 18px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .logo { display: flex; align-items: center; gap: 15px; }
+        .logo img { height: 50px; width: auto; }
+        .logo h1 { font-size: 28px; font-weight: 700; color: #1a1a2e; margin: 0; }
+        .logo span { color: #b22234; }
+        .logo small { display: block; font-size: 13px; font-weight: 400; color: #555; margin-top: 2px; }
+        .contacts-top { text-align: right; font-size: 15px; }
+        .contacts-top a { color: #1a1a2e; font-weight: 500; }
+        .contacts-top .phone { font-weight: 700; color: #b22234; }
+
+        /* НАВИГАЦИЯ */
+        .nav { background: #1a1a2e; padding: 10px 0; }
+        .nav-inner { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: center; }
+        .nav-inner a { color: #ffffff; font-weight: 500; font-size: 15px; padding: 4px 0; border-bottom: 2px solid transparent; transition: border-color 0.2s; }
+        .nav-inner a:hover { border-color: #b22234; text-decoration: none; }
+
+        /* БАННЕР */
+        .banner { background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%); color: #ffffff; padding: 48px 20px; margin: 30px 0; border-radius: 16px; text-align: center; }
+        .banner h2 { font-size: 34px; font-weight: 700; margin-bottom: 12px; }
+        .banner p { font-size: 18px; opacity: 0.85; max-width: 700px; margin: 0 auto 20px; }
+        .banner .btn { display: inline-block; background: #b22234; color: #fff; padding: 14px 40px; border-radius: 40px; font-weight: 600; font-size: 16px; transition: background 0.2s; }
+        .banner .btn:hover { background: #8a1a26; text-decoration: none; }
+
+        /* СЕКЦИИ */
+        .section { background: #ffffff; border-radius: 16px; padding: 36px 32px; margin-bottom: 30px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); border: 1px solid #e8eaed; }
+        .section h2 { font-size: 26px; font-weight: 700; color: #1a1a2e; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #b22234; display: inline-block; }
+        .section h3 { font-size: 20px; font-weight: 600; color: #1a1a2e; margin: 18px 0 10px; }
+        .section ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px 20px; }
+        .section ul li { padding: 4px 0 4px 20px; position: relative; font-size: 15px; }
+        .section ul li::before { content: "▸"; color: #b22234; font-weight: 700; position: absolute; left: 0; }
+        .section .brands { display: flex; flex-wrap: wrap; gap: 12px 28px; padding: 12px 0; font-weight: 500; }
+        .section .brands span { background: #f4f6f9; padding: 4px 14px; border-radius: 20px; font-size: 14px; }
+
+        /* КОНТАКТЫ */
+        .contacts-block { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 12px; }
+        .contacts-block .person { background: #f8f9fb; padding: 16px 20px; border-radius: 12px; border-left: 4px solid #b22234; }
+        .contacts-block .person strong { display: block; font-size: 16px; }
+        .contacts-block .person .phone { font-weight: 600; color: #b22234; }
+
+        /* ПОДВАЛ */
+        .footer { background: #1a1a2e; color: #aaa; padding: 28px 0; margin-top: 20px; text-align: center; font-size: 14px; }
+        .footer a { color: #ddd; }
+        .footer a:hover { color: #fff; text-decoration: underline; }
+        .footer .copy { margin-top: 6px; color: #777; }
+
+        /* АДАПТИВ */
+        @media (max-width: 768px) {
+            .header-inner { flex-direction: column; text-align: center; }
+            .logo { flex-direction: column; text-align: center; }
+            .contacts-top { text-align: center; }
+            .banner h2 { font-size: 26px; }
+            .section ul { grid-template-columns: 1fr; }
+            .contacts-block { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
-<body>  <!-- <-- ЭТОГО НЕ ХВАТАЕТ -->
-
+<body>
 
     <!-- ===== ШАПКА ===== -->
     <header class="header">
         <div class="container header-inner">
-            <div class="logo" style="display: flex; align-items: center; gap: 15px;">
-                <img src="LOGO.png" alt="Логотип ООО Киловольт" style="height: 50px; width: auto;">
+            <div class="logo">
+                <img src="LOGO.png" alt="Логотип ООО Киловольт">
                 <div>
-                    <h1 style="margin: 0;">ООО <span style="color: #b22234;">«КИЛОВОЛЬТ»</span></h1>
-                    <small style="display: block; font-size: 13px; font-weight: 400; color: #555; margin-top: 2px;">Электротехника · Сантехника · Промышленное оборудование</small>
+                    <h1>ООО <span>«КИЛОВОЛЬТ»</span></h1>
+                    <small>Электротехника · Сантехника · Промышленное оборудование</small>
                 </div>
             </div>
             <div class="contacts-top">
-                <div>📞 <span class="phone" style="font-weight: 700; color: #b22234;">+7 (937) 551-44-87</span></div>
-                <div><a href="mailto:info.kilovolt@gmail.com" style="color: #1a1a2e; text-decoration: none;">info.kilovolt@gmail.com</a></div>
+                <div>📞 <span class="phone">+7 (937) 551-44-87</span></div>
+                <div><a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a></div>
             </div>
         </div>
     </header>
- <!-- ===== НАВИГАЦИЯ ===== -->
+
+    <!-- ===== НАВИГАЦИЯ ===== -->
     <nav class="nav">
         <div class="container nav-inner">
             <a href="#about">О компании</a>
@@ -41,317 +101,165 @@
         </div>
     </nav>
 
-
     <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
     <main class="container">
-        <!-- ... весь ваш контент ... -->
+
+        <!-- БАННЕР -->
+        <section class="banner">
+            <h2>Надёжный поставщик оборудования</h2>
+            <p>Комплексные поставки электротехнической, сантехнической продукции, промышленного оборудования для предприятий всех отраслей.</p>
+            <a href="#contacts" class="btn">Связаться с нами</a>
+        </section>
+
+        <!-- О КОМПАНИИ -->
+        <section class="section" id="about">
+            <h2>О компании</h2>
+            <p style="font-size:16px; margin-bottom:12px;"><strong>ООО «КИЛОВОЛЬТ»</strong> — оптовый поставщик электротехнической, сантехнической продукции, инженерного и промышленного оборудования.</p>
+            <p style="font-size:16px;">
+                ✅ Гибкая система скидок<br />
+                ✅ Качество поставляемой продукции<br />
+                ✅ Индивидуальный подход к каждому клиенту<br />
+                ✅ Бесплатная доставка<br />
+                ✅ Команда профессиональных менеджеров с техническим образованием<br />
+                ✅ Помощь в подборе аналогов и поставка импортных комплектующих
+            </p>
+        </section>
+
+        <!-- ПРОДУКЦИЯ -->
+        <section class="section" id="products">
+            <h2>Продукция</h2>
+            <h3>📌 Кабельно-проводниковая продукция</h3>
+            <ul><li>Кабель, провод различных наименований и технических характеристик</li></ul>
+            <h3>📌 Промышленное электрооборудование</h3>
+            <ul><li>Двигатели</li><li>Компрессоры</li></ul>
+            <h3>📌 Светотехническое оборудование</h3>
+            <ul><li>Промышленные светильники</li><li>Офисные светильники</li><li>Бытовые светильники</li><li>Взрывозащищенные светильники</li><li>Лампы, цоколи и пр.</li></ul>
+            <h3>📌 Системы прокладки кабеля</h3>
+            <ul><li>Кабельный лоток</li><li>Металлорукав</li><li>Гофра</li><li>Трубы ПВД и ПНД, аксессуары</li></ul>
+            <h3>📌 Электрощитовое оборудование</h3>
+            <ul><li>Пластиковые боксы и корпуса для учёта и распределения электроэнергии</li><li>Металлокорпуса</li><li>Электрощиты в сборе</li><li>Аксессуары для шкафов и щитов</li></ul>
+            <h3>📌 Низковольтное оборудование</h3>
+            <ul><li>Автоматические выключатели</li><li>Контакторы</li><li>Частотные преобразователи</li><li>Пускатели</li><li>Реле, таймеры, ограничители мощности</li></ul>
+            <h3>📌 Высоковольтное оборудование</h3>
+            <ul><li>Трансформаторные подстанции</li><li>Ячейки КСО, КРУН</li><li>Изоляторы, траверсы, птицезащита</li><li>РЛНД</li></ul>
+            <h3>📌 Запорная и регулирующая арматура водоснабжения</h3>
+            <ul><li>Задвижки (латунные, стальные, чугунные)</li><li>Шаровые краны</li><li>Затворы поворотные</li><li>Электроприводы, редукторы</li><li>Манометры, термоманометры, термометры</li></ul>
+            <h3>📌 Трубопроводные системы</h3>
+            <ul><li>Фланцы, резьбовые соединения, переходники, муфты, сгоны, отводы</li><li>Обратные клапаны, фильтры, компенсаторы, элеваторы, грязевики</li><li>Конденсатоотводчики, воздухоотводчики</li><li>Компенсаторы и виброгасители</li><li>Узлы смесительные</li></ul>
+            <h3>📌 Насосное оборудование</h3>
+            <ul><li>Насосы</li><li>Насосные станции</li><li>Промышленные гидростанции</li></ul>
+            <h3>📌 Отопительное оборудование</h3>
+            <ul><li>Радиаторы (алюминиевые, биметаллические, стальные, чугунные)</li></ul>
+            <h3>📌 Средства автоматического пожаротушения</h3>
+            <ul><li>Системы пожаротушения</li></ul>
+            <h3>📌 Канализационные системы</h3>
+            <ul><li>Канализационные системы</li></ul>
+        </section>
+
+        <!-- ПРОМЫШЛЕННАЯ АВТОМАТИЗАЦИЯ -->
+        <section class="section" id="automation">
+            <h2>Промышленная автоматизация и комплектующие</h2>
+            <p style="font-size:16px; margin-bottom:16px;">Поставляем электронное оборудование для промышленной автоматизации, в том числе позиции, снятые с производства или не завозимые в Россию (доставляем со складов Европы, США, Японии через Казахстан).</p>
+            <h3>Номенклатура:</h3>
+            <ul><li>Датчики</li><li>Контроллеры</li><li>Приводы, серводвигатели, сервоусилители</li><li>Частотные преобразователи</li><li>Актуаторы, модули</li><li>Концевые выключатели, контакторы</li><li>Уровнемеры, расходомеры</li></ul>
+            <h3>Производители:</h3>
+            <div class="brands">
+                <span>Siemens</span><span>Allen-Bradley</span><span>Fanuc</span>
+                <span>Sick</span><span>iFM</span><span>Pepper+Fuchs</span>
+                <span>Bently Nevada</span><span>Mitsubishi</span><span>Omron</span>
+                <span>Yaskawa</span><span>Telemecanique</span><span>Turck</span>
+                <span>IXYS</span><span>EUPEC</span><span>BENDER</span>
+                <span>Parker</span><span>B&R</span><span>FUJI</span>
+                <span>VIPA</span><span>ABB</span><span>Bussmann</span>
+                <span>Balluff</span><span>Panasonic</span><span>Schneider Electric</span>
+                <span>Toshiba</span><span>Endress+Hauser</span><span>Vega</span>
+                <span>Honeywell</span>
+            </div>
+        </section>
+
+        <!-- НЕФТЕГАЗОВОЕ ОБОРУДОВАНИЕ -->
+        <section class="section" id="oil">
+            <h2>Оборудование для нефтегазовой отрасли</h2>
+            <p style="font-size:16px; margin-bottom:12px;">Поставка оборудования для АЗС, нефтебаз, предприятий нефтеперерабатывающей сферы.</p>
+            <h3>⛽ Топливозадаточные колонки</h3>
+            <ul><li>Gilbarco</li><li>SANKI</li><li>Wayne</li><li>Tokheim</li><li>ADAST</li></ul>
+            <h3>⛽ Насосы и счётчики (расходомеры)</h3>
+            <ul><li>Red Jacket</li><li>Fe Petro</li><li>Счётчики ППО</li><li>Счётчики TCS</li></ul>
+            <h3>⛽ Системы измерения уровня топлива (СИУТ)</h3>
+            <ul><li>FAFNIR</li><li>Veeder-Root</li><li>Petro Vend</li><li>Струна+</li><li>ОКБ Вектор</li></ul>
+            <h3>⛽ Терминалы самообслуживания</h3>
+            <ul><li>FlexPay</li><li>ЭЛ-КОНТРАКТ</li></ul>
+            <h3>⛽ Резервуарный парк</h3>
+            <ul><li>Резервуары и резервуарное оборудование</li></ul>
+            <h3>⛽ Метрология</h3>
+            <ul><li>Паста метрологическая</li><li>Ареометры</li><li>Пробоотборники и заборные вёдра</li><li>Метроштоки</li><li>Мерники</li><li>Цилиндры мерные</li><li>Рулетки</li></ul>
+            <h3>⛽ Запасные части ТРК</h3>
+            <ul><li>Elaflex</li><li>OPW</li><li>Good Year / Continental</li><li>Semperit</li><li>Gilbarco, Wayne, Tokheim, Adast, HAPA</li></ul>
+            <h3>⛽ Эксплуатационное оборудование</h3>
+            <ul><li>Лотки</li><li>Дуги безопасности</li><li>Коронки заправочного островка</li><li>Светильники навеса</li><li>Контейнеры</li><li>Информационные таблички</li></ul>
+            <h3>⛽ Пластиковый трубопровод</h3>
+            <ul><li>UPP</li><li>Dinarjire</li><li>KPS</li><li>RUS PIPE</li></ul>
+            <h3>⛽ Автоматизация</h3>
+            <ul><li>БУК TS-G</li><li>GasKit</li><li>Пульты управления</li><li>DOMS</li></ul>
+            <h3>⛽ Быстроразъёмные соединения</h3>
+            <ul><li>Сат Lock</li><li>TankWagen</li></ul>
+            <h3>⛽ Антивибрационные компенсаторы</h3>
+            <ul><li>Elaflex и пр.</li></ul>
+            <h3>⛽ Краны шаровые</h3>
+            <ul><li>Danfoss</li><li>NAVAL</li></ul>
+            <h3>⛽ Диэлектрическая продукция</h3>
+            <ul><li>Диэлектрическая продукция</li></ul>
+        </section>
+
+        <!-- БРЕНДЫ -->
+        <section class="section" id="brands">
+            <h2>Официальный партнёр ведущих брендов</h2>
+            <div class="brands" style="gap:12px 28px; font-weight:500; padding:8px 0;">
+                <span>TDM ELECTRIC</span><span>КЭАЗ</span><span>IEK</span>
+                <span>Лидер Лайт</span><span>ЭНЕРГОМЕРА</span><span>КМ-Профиль</span>
+                <span>Навигатор</span><span>Feron</span><span>ГК Камит</span>
+            </div>
+            <p style="margin-top:12px;"><strong>Кабельные заводы:</strong></p>
+            <div class="brands" style="gap:12px 28px;">
+                <span>Эксперт-Кабель</span><span>Рыбинсккабель</span>
+                <span>Иркутсккабель</span><span>Кирсккабель</span>
+                <span>Эм-кабель</span><span>Элкаб</span>
+            </div>
+        </section>
+
+        <!-- КОНТАКТЫ -->
+        <section class="section" id="contacts">
+            <h2>Контакты</h2>
+            <p style="font-size:16px; margin-bottom:16px;">
+                <strong>Адрес:</strong> 404121, РФ, Волгоградская обл., г. Волжский, ул. Дорожная, д. 7, офис 315<br />
+                <strong>E-mail:</strong> <a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a>
+            </p>
+            <div class="contacts-block">
+                <div class="person"><span class="phone">+7 (937) 551-44-87</span></div>
+                <div class="person"><span class="phone">+7 (905) 391-44-66</span></div>
+                <div class="person"><span class="phone">+7 917 721-85-42</span></div>
+            </div>
+            <p style="margin-top:12px; font-style:italic; color:#555;">
+                <strong>Кравченко Денис</strong> — коммерческий директор<br />
+                <span class="phone">+7 (937) 742-44-66</span> · <a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a>
+            </p>
+            <p style="margin-top:20px; text-align:center;">
+                <strong>📩 Пришлите вашу текущую потребность — мы подготовим выгодное предложение!</strong>
+            </p>
+        </section>
+
     </main>
 
     <!-- ===== ПОДВАЛ ===== -->
     <footer class="footer">
-        <!-- ... -->
+        <div class="container">
+            <p>
+                <a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a> |
+                <a href="tel:+79375514487">+7 (937) 551-44-87</a>
+            </p>
+            <p class="copy">© 2026 ООО «КИЛОВОЛЬТ». Все права защищены.</p>
+        </div>
     </footer>
-
-</body> <!-- <-- И ЭТОГО ТОЖЕ НЕ ХВАТАЕТ -->
-</html>
-    <!-- БАННЕР -->
-    <section class="banner">
-        <h2>Надёжный поставщик оборудования</h2>
-        <p>
-            Комплексные поставки электротехнической, сантехнической продукции,
-            промышленного оборудования для предприятий всех отраслей.
-        </p>
-        <a href="#contacts" class="btn">Связаться с нами</a>
-    </section>
-
-    <!-- О КОМПАНИИ -->
-    <section class="section" id="about">
-        <h2>О компании</h2>
-        <p style="font-size:16px; margin-bottom:12px;">
-            <strong>ООО «КИЛОВОЛЬТ»</strong> — оптовый поставщик электротехнической,
-            сантехнической продукции, инженерного и промышленного оборудования.
-        </p>
-        <p style="font-size:16px;">
-            ✅ Гибкая система скидок<br />
-            ✅ Качество поставляемой продукции<br />
-            ✅ Индивидуальный подход к каждому клиенту<br />
-            ✅ Бесплатная доставка<br />
-            ✅ Команда профессиональных менеджеров с техническим образованием<br />
-            ✅ Помощь в подборе аналогов и поставка импортных комплектующих
-        </p>
-    </section>
-
-    <!-- ПРОДУКЦИЯ -->
-    <section class="section" id="products">
-        <h2>Продукция</h2>
-
-        <h3>📌 Кабельно-проводниковая продукция</h3>
-        <ul>
-            <li>Кабель, провод различных наименований и технических характеристик</li>
-        </ul>
-
-        <h3>📌 Промышленное электрооборудование</h3>
-        <ul>
-            <li>Двигатели</li>
-            <li>Компрессоры</li>
-        </ul>
-
-        <h3>📌 Светотехническое оборудование</h3>
-        <ul>
-            <li>Промышленные светильники</li>
-            <li>Офисные светильники</li>
-            <li>Бытовые светильники</li>
-            <li>Взрывозащищенные светильники</li>
-            <li>Лампы, цоколи и пр.</li>
-        </ul>
-
-        <h3>📌 Системы прокладки кабеля</h3>
-        <ul>
-            <li>Кабельный лоток</li>
-            <li>Металлорукав</li>
-            <li>Гофра</li>
-            <li>Трубы ПВД и ПНД, аксессуары</li>
-        </ul>
-
-        <h3>📌 Электрощитовое оборудование</h3>
-        <ul>
-            <li>Пластиковые боксы и корпуса для учёта и распределения электроэнергии</li>
-            <li>Металлокорпуса</li>
-            <li>Электрощиты в сборе</li>
-            <li>Аксессуары для шкафов и щитов</li>
-        </ul>
-
-        <h3>📌 Низковольтное оборудование</h3>
-        <ul>
-            <li>Автоматические выключатели</li>
-            <li>Контакторы</li>
-            <li>Частотные преобразователи</li>
-            <li>Пускатели</li>
-            <li>Реле, таймеры, ограничители мощности</li>
-        </ul>
-
-        <h3>📌 Высоковольтное оборудование</h3>
-        <ul>
-            <li>Трансформаторные подстанции</li>
-            <li>Ячейки КСО, КРУН</li>
-            <li>Изоляторы, траверсы, птицезащита</li>
-            <li>РЛНД</li>
-        </ul>
-
-        <h3>📌 Запорная и регулирующая арматура водоснабжения</h3>
-        <ul>
-            <li>Задвижки (латунные, стальные, чугунные)</li>
-            <li>Шаровые краны</li>
-            <li>Затворы поворотные</li>
-            <li>Электроприводы, редукторы</li>
-            <li>Манометры, термоманометры, термометры</li>
-        </ul>
-
-        <h3>📌 Трубопроводные системы</h3>
-        <ul>
-            <li>Фланцы, резьбовые соединения, переходники, муфты, сгоны, отводы</li>
-            <li>Обратные клапаны, фильтры, компенсаторы, элеваторы, грязевики</li>
-            <li>Конденсатоотводчики, воздухоотводчики</li>
-            <li>Компенсаторы и виброгасители</li>
-            <li>Узлы смесительные</li>
-        </ul>
-
-        <h3>📌 Насосное оборудование</h3>
-        <ul>
-            <li>Насосы</li>
-            <li>Насосные станции</li>
-            <li>Промышленные гидростанции</li>
-        </ul>
-
-        <h3>📌 Отопительное оборудование</h3>
-        <ul>
-            <li>Радиаторы (алюминиевые, биметаллические, стальные, чугунные)</li>
-        </ul>
-
-        <h3>📌 Средства автоматического пожаротушения</h3>
-        <ul><li>Системы пожаротушения</li></ul>
-
-        <h3>📌 Канализационные системы</h3>
-        <ul><li>Канализационные системы</li></ul>
-    </section>
-
-    <!-- ПРОМЫШЛЕННАЯ АВТОМАТИЗАЦИЯ -->
-    <section class="section" id="automation">
-        <h2>Промышленная автоматизация и комплектующие</h2>
-        <p style="font-size:16px; margin-bottom:16px;">
-            Поставляем электронное оборудование для промышленной автоматизации,
-            в том числе позиции, снятые с производства или не завозимые в Россию
-            (доставляем со складов Европы, США, Японии через Казахстан).
-        </p>
-        <h3>Номенклатура:</h3>
-        <ul>
-            <li>Датчики</li>
-            <li>Контроллеры</li>
-            <li>Приводы, серводвигатели, сервоусилители</li>
-            <li>Частотные преобразователи</li>
-            <li>Актуаторы, модули</li>
-            <li>Концевые выключатели, контакторы</li>
-            <li>Уровнемеры, расходомеры</li>
-        </ul>
-
-        <h3>Производители:</h3>
-        <div class="brands">
-            <span>Siemens</span><span>Allen-Bradley</span><span>Fanuc</span>
-            <span>Sick</span><span>iFM</span><span>Pepper+Fuchs</span>
-            <span>Bently Nevada</span><span>Mitsubishi</span><span>Omron</span>
-            <span>Yaskawa</span><span>Telemecanique</span><span>Turck</span>
-            <span>IXYS</span><span>EUPEC</span><span>BENDER</span>
-            <span>Parker</span><span>B&R</span><span>FUJI</span>
-            <span>VIPA</span><span>ABB</span><span>Bussmann</span>
-            <span>Balluff</span><span>Panasonic</span><span>Schneider Electric</span>
-            <span>Toshiba</span><span>Endress+Hauser</span><span>Vega</span>
-            <span>Honeywell</span>
-        </div>
-    </section>
-
-    <!-- НЕФТЕГАЗОВОЕ ОБОРУДОВАНИЕ -->
-    <section class="section" id="oil">
-        <h2>Оборудование для нефтегазовой отрасли</h2>
-        <p style="font-size:16px; margin-bottom:12px;">
-            Поставка оборудования для АЗС, нефтебаз, предприятий нефтеперерабатывающей сферы.
-        </p>
-
-        <h3>⛽ Топливозадаточные колонки</h3>
-        <ul>
-            <li>Gilbarco</li><li>SANKI</li><li>Wayne</li>
-            <li>Tokheim</li><li>ADAST</li>
-        </ul>
-
-        <h3>⛽ Насосы и счётчики (расходомеры)</h3>
-        <ul>
-            <li>Red Jacket</li><li>Fe Petro</li>
-            <li>Счётчики ППО</li><li>Счётчики TCS</li>
-        </ul>
-
-        <h3>⛽ Системы измерения уровня топлива (СИУТ)</h3>
-        <ul>
-            <li>FAFNIR</li><li>Veeder-Root</li><li>Petro Vend</li>
-            <li>Струна+</li><li>ОКБ Вектор</li>
-        </ul>
-
-        <h3>⛽ Терминалы самообслуживания</h3>
-        <ul>
-            <li>FlexPay</li><li>ЭЛ-КОНТРАКТ</li>
-        </ul>
-
-        <h3>⛽ Резервуарный парк</h3>
-        <ul>
-            <li>Резервуары и резервуарное оборудование</li>
-        </ul>
-
-        <h3>⛽ Метрология</h3>
-        <ul>
-            <li>Паста метрологическая</li><li>Ареометры</li>
-            <li>Пробоотборники и заборные вёдра</li><li>Метроштоки</li>
-            <li>Мерники</li><li>Цилиндры мерные</li><li>Рулетки</li>
-        </ul>
-
-        <h3>⛽ Запасные части ТРК</h3>
-        <ul>
-            <li>Elaflex</li><li>OPW</li><li>Good Year / Continental</li>
-            <li>Semperit</li><li>Gilbarco, Wayne, Tokheim, Adast, HAPA</li>
-        </ul>
-
-        <h3>⛽ Эксплуатационное оборудование</h3>
-        <ul>
-            <li>Лотки</li><li>Дуги безопасности</li>
-            <li>Коронки заправочного островка</li>
-            <li>Светильники навеса</li><li>Контейнеры</li>
-            <li>Информационные таблички</li>
-        </ul>
-
-        <h3>⛽ Пластиковый трубопровод</h3>
-        <ul>
-            <li>UPP</li><li>Dinarjire</li><li>KPS</li><li>RUS PIPE</li>
-        </ul>
-
-        <h3>⛽ Автоматизация</h3>
-        <ul>
-            <li>БУК TS-G</li><li>GasKit</li><li>Пульты управления</li><li>DOMS</li>
-        </ul>
-
-        <h3>⛽ Быстроразъёмные соединения</h3>
-        <ul>
-            <li>Сат Lock</li><li>TankWagen</li>
-        </ul>
-
-        <h3>⛽ Антивибрационные компенсаторы</h3>
-        <ul>
-            <li>Elaflex и пр.</li>
-        </ul>
-
-        <h3>⛽ Краны шаровые</h3>
-        <ul>
-            <li>Danfoss</li><li>NAVAL</li>
-        </ul>
-
-        <h3>⛽ Диэлектрическая продукция</h3>
-        <ul><li>Диэлектрическая продукция</li></ul>
-    </section>
-
-    <!-- БРЕНДЫ -->
-    <section class="section" id="brands">
-        <h2>Официальный партнёр ведущих брендов</h2>
-        <div class="brands" style="gap:12px 28px; font-weight:500; padding:8px 0;">
-            <span>TDM ELECTRIC</span><span>КЭАЗ</span><span>IEK</span>
-            <span>Лидер Лайт</span><span>ЭНЕРГОМЕРА</span><span>КМ-Профиль</span>
-            <span>Навигатор</span><span>Feron</span><span>ГК Камит</span>
-        </div>
-        <p style="margin-top:12px;"><strong>Кабельные заводы:</strong></p>
-        <div class="brands" style="gap:12px 28px;">
-            <span>Эксперт-Кабель</span><span>Рыбинсккабель</span>
-            <span>Иркутсккабель</span><span>Кирсккабель</span>
-            <span>Эм-кабель</span><span>Элкаб</span>
-        </div>
-    </section>
-
-    <!-- КОНТАКТЫ -->
-    <section class="section" id="contacts">
-        <h2>Контакты</h2>
-        <p style="font-size:16px; margin-bottom:16px;">
-            <strong>Адрес:</strong> 404121, РФ, Волгоградская обл., г. Волжский, ул. Дорожная, д. 7, офис 315<br />
-            <strong>E-mail:</strong> <a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a>
-        </p>
-
-        <div class="contacts-block">
-            <div class="person">
-                <span class="phone">+7 (937) 551-44-87</span>
-            </div>
-            <div class="person">
-                <span class="phone">+7 (905) 391-44-66</span>
-            </div>
-            <div class="person">
-                <span class="phone">+7 917 721-85-42</span>
-            </div>
-        </div>
-
-        <p style="margin-top:12px; font-style:italic; color:#555;">
-            <strong>Кравченко Денис</strong> — коммерческий директор<br />
-            <span class="phone">+7 (937) 742-44-66</span> · <a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a>
-        </p>
-
-        <p style="margin-top:20px; text-align:center;">
-            <strong>📩 Пришлите вашу текущую потребность — мы подготовим выгодное предложение!</strong>
-        </p>
-    </section>
-
-</main>
-
-<!-- ===== ПОДВАЛ ===== -->
-<footer class="footer">
-    <div class="container">
-        <p>
-            <a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a> |
-            <a href="tel:+79375514487">+7 (937) 551-44-87</a>
-        </p>
-        <p class="copy">© 2026 ООО «КИЛОВОЛЬТ». Все права защищены.</p>
-    </div>
-</footer>
 
 </body>
 </html>
