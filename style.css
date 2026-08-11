@@ -261,3 +261,18 @@ a:hover {
         font-size: 13px;
     }
 }
+.logo img {
+    height: 60px;
+    width: auto;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .logo > div:first-child {
+        flex-direction: column;
+        text-align: center;
+    }
+    .logo img {
+        height: 50px;
+    }
+}
