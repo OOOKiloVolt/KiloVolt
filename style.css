@@ -63,8 +63,18 @@ a:hover {
     margin-top: 2px;
 }
 .contacts-top {
-    display: none;
+    text-align: right;
+    font-size: 15px;
 }
+.contacts-top a {
+    color: #1a1a2e;
+    font-weight: 500;
+}
+.contacts-top .phone {
+    font-weight: 700;
+    color: #b22234;
+}
+
 /* ----- НАВИГАЦИЯ ----- */
 .nav {
     background: #1a1a2e;
@@ -259,20 +269,5 @@ a:hover {
     }
     .nav-inner a {
         font-size: 13px;
-    }
-}
-.logo img {
-    height: 60px;
-    width: auto;
-    border-radius: 8px;
-}
-
-@media (max-width: 768px) {
-    .logo > div:first-child {
-        flex-direction: column;
-        text-align: center;
-    }
-    .logo img {
-        height: 50px;
     }
 }
