@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <div class="logo" style="display: flex; align-items: center; gap: 16px;">
-    <img src="LOGO.png" alt="Логотип КИЛОВОЛЬТ" style="height: 60px; width: auto; border-radius: 8px;">
-    <div>
-        <h1 style="margin: 0; font-size: 28px; font-weight: 700; color: #1a1a2e;">ООО <span style="color: #b22234;">«КИЛОВОЛЬТ»</span></h1>
-        <small style="font-size: 13px; color: #555;">Электротехника · Сантехника · Промышленное оборудование</small>
-    </div>
-</div>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ООО «КИЛОВОЛЬТ» — Электротехника, сантехника, оборудование</title>
+    <link rel="icon" href="favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <!-- ===== ШАПКА ===== -->
 <header class="header">
     <div class="container header-inner">
-        <div class="logo" style="display:flex; align-items:center; gap:16px;">
-            <img src="LOGO.png" alt="КИЛОВОЛЬТ" style="height:60px; width:auto; border-radius:8px;">
+        <!-- Логотип + название (слева) -->
+        <div class="logo" style="display: flex; align-items: center; gap: 14px;">
+            <img src="LOGO.png" alt="КИЛОВОЛЬТ" style="height: 50px; width: auto; border-radius: 6px;">
             <div>
-                <h1 style="margin:0; font-size:28px; font-weight:700; color:#1a1a2e;">ООО <span style="color:#b22234;">«КИЛОВОЛЬТ»</span></h1>
-                <small style="font-size:13px; color:#555;">Электротехника · Сантехника · Промышленное оборудование</small>
+                <h1 style="margin: 0; font-size: 26px; font-weight: 700; color: #1a1a2e;">ООО <span style="color: #b22234;">«КИЛОВОЛЬТ»</span></h1>
+                <small style="font-size: 12px; color: #555; display: block; margin-top: 2px;">Электротехника · Сантехника · Промышленное оборудование</small>
             </div>
         </div>
-        <div class="contacts-top" style="display:none;">
-            <div>📞 <span class="phone">+7 (937) 551-44-87</span></div>
-            <div><a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a></div>
+
+        <!-- Контакты (справа) — ВЕРНУЛИ! -->
+        <div class="contacts-top">
+            <div style="font-size: 14px;">📞 <span style="font-weight: 700; color: #b22234;">+7 (937) 551-44-87</span></div>
+            <div style="font-size: 14px;">✉️ <a href="mailto:info.kilovolt@gmail.com" style="color: #1a1a2e; text-decoration: none;">info.kilovolt@gmail.com</a></div>
         </div>
     </div>
 </header>
@@ -47,70 +48,40 @@
 
         <section class="banner">
             <h2>Надёжный поставщик оборудования</h2>
-            <p>
-                Комплексные поставки электротехнической, сантехнической продукции,
-                промышленного оборудования для предприятий всех отраслей.
-            </p>
+            <p>Комплексные поставки электротехнической, сантехнической продукции, промышленного оборудования для предприятий всех отраслей.</p>
             <a href="contacts.html" class="btn">Связаться с нами</a>
         </section>
 
         <section class="section">
             <h2>О компании</h2>
-            <p style="font-size:16px; margin-bottom:12px;">
-                <strong>ООО «КИЛОВОЛЬТ»</strong> — оптовый поставщик электротехнической,
-                сантехнической продукции, инженерного и промышленного оборудования.
-            </p>
-            <p style="font-size:16px;">
-                ✅ Гибкая система скидок<br />
-                ✅ Качество поставляемой продукции<br />
-                ✅ Индивидуальный подход к каждому клиенту<br />
-                ✅ Бесплатная доставка<br />
-                ✅ Команда профессиональных менеджеров с техническим образованием<br />
-                ✅ Помощь в подборе аналогов и поставка импортных комплектующих
-            </p>
-            <p style="margin-top:16px;">
-                <a href="about.html" style="font-weight:600;">Подробнее о компании →</a>
-            </p>
+            <p><strong>ООО «КИЛОВОЛЬТ»</strong> — оптовый поставщик электротехнической, сантехнической продукции, инженерного и промышленного оборудования.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 12px;">
+                <li>✅ Гибкая система скидок</li>
+                <li>✅ Качество поставляемой продукции</li>
+                <li>✅ Индивидуальный подход к каждому клиенту</li>
+                <li>✅ Бесплатная доставка</li>
+                <li>✅ Команда профессиональных менеджеров с техническим образованием</li>
+                <li>✅ Помощь в подборе аналогов и поставка импортных комплектующих</li>
+            </ul>
         </section>
 
         <section class="section">
             <h2>Основные направления</h2>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-top:12px;">
-                <div style="background:#f8f9fb; border-radius:12px; padding:16px; text-align:center; border-left:4px solid #b22234;">
-                    <h3 style="font-size:18px; margin:0;">📦</h3>
-                    <p style="font-weight:600; margin-top:4px;">Электротехника</p>
-                </div>
-                <div style="background:#f8f9fb; border-radius:12px; padding:16px; text-align:center; border-left:4px solid #b22234;">
-                    <h3 style="font-size:18px; margin:0;">🔧</h3>
-                    <p style="font-weight:600; margin-top:4px;">Сантехника</p>
-                </div>
-                <div style="background:#f8f9fb; border-radius:12px; padding:16px; text-align:center; border-left:4px solid #b22234;">
-                    <h3 style="font-size:18px; margin:0;">🏭</h3>
-                    <p style="font-weight:600; margin-top:4px;">Промышленное оборудование</p>
-                </div>
-                <div style="background:#f8f9fb; border-radius:12px; padding:16px; text-align:center; border-left:4px solid #b22234;">
-                    <h3 style="font-size:18px; margin:0;">⛽</h3>
-                    <p style="font-weight:600; margin-top:4px;">Нефтегазовое оборудование</p>
-                </div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:12px;">
+                <div style="background:#f8f9fb; border-radius:12px; padding:16px; text-align:center; border-left:4px solid #b22234;">📦 Электротехника</div>
+                <div style="background:#f8f9fb; border-radius:12px; padding:16px; text-align:center; border-left:4px solid #b22234;">🔧 Сантехника</div>
+                <div style="background:#f8f9fb; border-radius:12px; padding:16px; text-align:center; border-left:4px solid #b22234;">🏭 Промышленное оборудование</div>
+                <div style="background:#f8f9fb; border-radius:12px; padding:16px; text-align:center; border-left:4px solid #b22234;">⛽ Нефтегазовое оборудование</div>
             </div>
         </section>
 
         <section class="section">
             <h2>Контакты</h2>
-            <div class="contacts-block" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                <div class="person" style="text-align:center; border-left:4px solid #b22234;">
-                    <span class="phone" style="font-size:18px; font-weight:600; color:#b22234;">+7 (937) 551-44-87</span>
-                </div>
-                <div class="person" style="text-align:center; border-left:4px solid #b22234;">
-                    <span class="phone" style="font-size:18px; font-weight:600; color:#b22234;">+7 (905) 391-44-66</span>
-                </div>
-                <div class="person" style="text-align:center; border-left:4px solid #b22234;">
-                    <span class="phone" style="font-size:18px; font-weight:600; color:#b22234;">+7 (917) 721-85-42</span>
-                </div>
+            <div class="contacts-block">
+                <div class="person"><span class="phone">+7 (937) 551-44-87</span></div>
+                <div class="person"><span class="phone">+7 (905) 391-44-66</span></div>
+                <div class="person"><span class="phone">+7 (917) 721-85-42</span></div>
             </div>
-            <p style="margin-top:16px; text-align:center;">
-                <a href="contacts.html" style="font-weight:600;">Все контакты и адрес →</a>
-            </p>
         </section>
 
     </div>
@@ -119,10 +90,7 @@
 <!-- ===== ПОДВАЛ ===== -->
 <footer class="footer">
     <div class="container">
-        <p>
-            <a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a> |
-            <a href="tel:+79375514487">+7 (937) 551-44-87</a>
-        </p>
+        <p><a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a> | <a href="tel:+79375514487">+7 (937) 551-44-87</a></p>
         <p class="copy">© 2026 ООО «КИЛОВОЛЬТ». Все права защищены.</p>
     </div>
 </footer>
