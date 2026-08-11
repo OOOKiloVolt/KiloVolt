@@ -1,0 +1,273 @@
+/* ============================================================
+   ООО «КИЛОВОЛЬТ» — Единый файл стилей
+   ============================================================ */
+
+/* ----- БАЗОВЫЕ ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6f9;
+    color: #1a1a2e;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: #b22234;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ----- ШАПКА ----- */
+.header {
+    background: #ffffff;
+    border-bottom: 3px solid #b22234;
+    padding: 18px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.logo h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+}
+.logo h1 span {
+    color: #b22234;
+}
+.logo small {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #555;
+    margin-top: 2px;
+}
+.contacts-top {
+    text-align: right;
+    font-size: 15px;
+}
+.contacts-top a {
+    color: #1a1a2e;
+    font-weight: 500;
+}
+.contacts-top .phone {
+    font-weight: 700;
+    color: #b22234;
+}
+
+/* ----- НАВИГАЦИЯ ----- */
+.nav {
+    background: #1a1a2e;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.nav-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    justify-content: center;
+}
+.nav-inner a {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+.nav-inner a:hover {
+    border-color: #b22234;
+    text-decoration: none;
+}
+.nav-inner a.active {
+    border-color: #b22234;
+}
+
+/* ----- ОСНОВНОЙ КОНТЕНТ ----- */
+.main {
+    flex: 1;
+    padding: 30px 0;
+}
+
+/* ----- СЕКЦИИ ----- */
+.section {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 32px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    border: 1px solid #e8eaed;
+}
+.section h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #b22234;
+    display: inline-block;
+}
+.section h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin: 18px 0 10px;
+}
+.section ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px 20px;
+}
+.section ul li {
+    padding: 4px 0 4px 20px;
+    position: relative;
+    font-size: 15px;
+}
+.section ul li::before {
+    content: "▸";
+    color: #b22234;
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+}
+.section .brands {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    padding: 12px 0;
+    font-weight: 500;
+}
+.section .brands span {
+    background: #f4f6f9;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* ----- БАННЕР ----- */
+.banner {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+    color: #ffffff;
+    padding: 48px 20px;
+    margin: 0 0 30px 0;
+    border-radius: 16px;
+    text-align: center;
+}
+.banner h2 {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.banner p {
+    font-size: 18px;
+    opacity: 0.85;
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+.banner .btn {
+    display: inline-block;
+    background: #b22234;
+    color: #fff;
+    padding: 14px 40px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+.banner .btn:hover {
+    background: #8a1a26;
+    text-decoration: none;
+}
+
+/* ----- КОНТАКТЫ ----- */
+.contacts-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 12px;
+}
+.contacts-block .person {
+    background: #f8f9fb;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border-left: 4px solid #b22234;
+}
+.contacts-block .person strong {
+    display: block;
+    font-size: 16px;
+}
+.contacts-block .person .phone {
+    font-weight: 600;
+    color: #b22234;
+}
+
+/* ----- ПОДВАЛ ----- */
+.footer {
+    background: #1a1a2e;
+    color: #aaa;
+    padding: 28px 0;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+.footer a {
+    color: #ddd;
+}
+.footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+.footer .copy {
+    margin-top: 6px;
+    color: #777;
+}
+
+/* ----- АДАПТИВ ----- */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .contacts-top {
+        text-align: center;
+    }
+    .banner h2 {
+        font-size: 26px;
+    }
+    .section ul {
+        grid-template-columns: 1fr;
+    }
+    .contacts-block {
+        grid-template-columns: 1fr;
+    }
+    .nav-inner {
+        gap: 6px 12px;
+    }
+    .nav-inner a {
+        font-size: 13px;
+    }
+}
