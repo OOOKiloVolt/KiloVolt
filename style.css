@@ -263,3 +263,147 @@ a:hover {
 }
 
 
+/* ============================================================
+   КОНТАКТЫ — АДАПТИВНАЯ СЕТКА
+   ============================================================ */
+
+.contacts-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.contacts-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.phones-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.phone-card {
+    background: #f8f9fb;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border-left: 3px solid #b22234;
+}
+
+.phone-label {
+    font-size: 13px;
+    color: #777;
+}
+
+.phone-number {
+    font-weight: 700;
+    color: #b22234;
+    font-size: 17px;
+}
+
+.managers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.manager-card {
+    background: #f8f9fb;
+    padding: 16px 20px;
+    border-radius: 12px;
+}
+
+.contacts-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contacts-logo img {
+    max-width: 100%;
+    height: auto;
+    max-height: 280px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+/* ============================================================
+   АДАПТИВ ДЛЯ ТЕЛЕФОНОВ
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .contacts-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        text-align: center;
+    }
+
+    .phones-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .managers-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .contacts-logo img {
+        max-height: 160px !important;
+    }
+
+    .logo img {
+        height: 40px !important;
+    }
+
+    .logo h1 {
+        font-size: 20px !important;
+    }
+
+    .logo small {
+        font-size: 11px !important;
+    }
+
+    .nav-inner a {
+        font-size: 12px !important;
+        padding: 4px 8px !important;
+    }
+
+    .nav-inner a i {
+        display: none !important;
+    }
+
+    .banner h2 {
+        font-size: 22px !important;
+    }
+
+    .banner p {
+        font-size: 15px !important;
+    }
+
+    .section h2 {
+        font-size: 20px !important;
+        display: block !important;
+        text-align: center !important;
+    }
+
+    .section {
+        padding: 20px 16px !important;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .brands {
+        justify-content: center !important;
+    }
+
+    .brands span {
+        font-size: 12px !important;
+        padding: 4px 12px !important;
+    }
+}
