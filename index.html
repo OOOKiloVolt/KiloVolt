@@ -625,14 +625,14 @@
             </div>
         </section>
 
-<!-- ===== КОНТАКТЫ (С ЛОГОТИПОМ СПРАВА) ===== -->
+<!-- ===== КОНТАКТЫ (АДАПТИВНЫЕ) ===== -->
 <section class="section" id="contacts">
     <h2><i class="fas fa-address-book"></i> Контакты</h2>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-top: 20px;">
+    <div class="contacts-wrapper">
 
         <!-- ЛЕВАЯ КОЛОНКА: информация -->
-        <div>
+        <div class="contacts-info">
             <p style="font-size:16px; margin-bottom:12px;">
                 <i class="fas fa-map-pin" style="color:#b22234; width:24px;"></i>
                 <strong>Адрес:</strong> 404121, РФ, Волгоградская обл., г. Волжский, ул. Дорожная, д. 7, офис 315
@@ -643,35 +643,35 @@
             </p>
 
             <h3 style="margin-top: 24px; font-size:18px;"><i class="fas fa-phone"></i> Телефоны:</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                <div style="background:#f8f9fb; padding:12px 16px; border-radius:10px; border-left:3px solid #b22234;">
-                    <div style="font-size:13px; color:#777;">Отдел закупок</div>
-                    <div style="font-weight:700; color:#b22234; font-size:17px;">+7 (905) 391-44-66</div>
+            <div class="phones-grid">
+                <div class="phone-card">
+                    <div class="phone-label">Отдел закупок</div>
+                    <div class="phone-number">+7 (905) 391-44-66</div>
                 </div>
-                <div style="background:#f8f9fb; padding:12px 16px; border-radius:10px; border-left:3px solid #b22234;">
-                    <div style="font-size:13px; color:#777;">Коммерческий отдел</div>
-                    <div style="font-weight:700; color:#b22234; font-size:17px;">+7 (905) 391-44-66</div>
+                <div class="phone-card">
+                    <div class="phone-label">Коммерческий отдел</div>
+                    <div class="phone-number">+7 (905) 391-44-66</div>
                 </div>
             </div>
 
             <!-- КОНТАКТЫ РУКОВОДСТВА -->
-            <div style="margin-top:28px; display: grid; grid-template-columns: 1fr 1fr; gap:16px;">
-                <div style="background:#f8f9fb; padding:16px 20px; border-radius:12px;">
+            <div class="managers-grid">
+                <div class="manager-card">
                     <strong>Кравченко Денис</strong> – коммерческий директор<br>
-                    <span style="color:#b22234; font-weight:600;">+7 (937) 742-44-66</span><br>
+                    <span class="phone-number">+7 (937) 742-44-66</span><br>
                     <a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a>
                 </div>
-                <div style="background:#f8f9fb; padding:16px 20px; border-radius:12px;">
+                <div class="manager-card">
                     <strong>Алексей Томкин</strong> – директор<br>
-                    <span style="color:#b22234; font-weight:600;">+7 (937) 551-44-87</span><br>
+                    <span class="phone-number">+7 (937) 551-44-87</span><br>
                     <a href="mailto:info.kilovolt@gmail.com">info.kilovolt@gmail.com</a>
                 </div>
             </div>
         </div>
 
         <!-- ПРАВАЯ КОЛОНКА: ЛОГОТИП -->
-        <div style="display: flex; justify-content: center; align-items: center;">
-            <img src="LOGO.png" alt="Логотип КИЛОВОЛЬТ" style="max-width: 100%; height: auto; max-height: 280px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
+        <div class="contacts-logo">
+            <img src="LOGO.png" alt="Логотип КИЛОВОЛЬТ">
         </div>
 
     </div>
